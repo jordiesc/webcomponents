@@ -65,10 +65,10 @@ class PersonalAddres extends HTMLElement {
     connectedCallback() {
         console.log("escribiendo la consola")
         this.innerHTML =
-            `   <p>${this._calle}</p>
-        <p>${this._numero}</p>       
-    
-    `;
+         `   <p>${this._calle}</p>
+          <p>${this._numero}</p>
+    `
+    ;
     }
 
     attributeChangedCallback(attrName, oldVal, newVal) {

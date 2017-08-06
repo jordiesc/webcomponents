@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>jordi-detail</title>
     <script src="personaldata.js"></script>
+    <script src="jobposition.js"></script>
 
     
   </head>
@@ -13,7 +14,23 @@
   <!-- custom element with parameters -->  
     <personal-addres calle="diagonal" numero="33"></personal-addres> 
     <personal-addres calle="merdiana" numero="15"></personal-addres> 
-  
+    <job-position job="architect"></job-position>
+
+
+
+<script>
+var jobpositionelements = document.getElementsByTagName("job-position");
+
+console.log(jobpositionelements);
+
+jobpositionelement = jobpositionelements[0];
+
+console.log(jobpositionelement);
+
+jobpositionelement.addEventListener('test',e => {console.log('capturado el evento');
+      console.log(e);
+});
+    </script>
 
   </body>
 </html>
