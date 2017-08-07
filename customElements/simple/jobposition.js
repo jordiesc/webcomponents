@@ -2,12 +2,13 @@ class JobPosition extends HTMLElement {
     constructor() {
         super();
         this._job;
-        this._ontest;        
+        this._onclickok;
+        this._onclickko;        
 
     }
 
     static get observedAttributes() {
-        return ['job','ontest'];
+        return ['job','onclickok','onclickko'];
     }
 
     get job() {
@@ -23,34 +24,60 @@ class JobPosition extends HTMLElement {
         }
     }
 
-    get ontest() {
-        return this.hasAttribute('ontest');
+    get onclickok() {
+        return this.hasAttribute('onclickok');
     }
 
-    set ontest(val) {
+    set onclickok(val) {
         if (val) {
-            this.setAttribute('ontest', '');
+            this.setAttribute('onclickok', '');
 
         } else {
-            this.removeAttribute('ontest');
+            this.removeAttribute('onclickok');
         }
-    }    
+    }
+    
+    
+    get onclickko() {
+        return this.hasAttribute('onclickko');
+    }
+
+    set onclickko(val) {
+        if (val) {
+            this.setAttribute('onclickko', '');
+
+        } else {
+            this.removeAttribute('onclickko');
+        }
+    }
 
     connectedCallback() {
         console.log('en callback')
         this.innerHTML =
             `   <p>my job is</p>
          <input type="text" name="job" value=${this._job}><br>
-         <button class="button">estas contento </button>      
+         <button class="buttonok">me gusta </button>
+         <button class="buttonko">no me gusta</button>       
     
     `;
 
-       let mybutton = this.querySelector('.button').addEventListener('click',e => {
-        e.preventDefault();
-        e.stopPropagation();
+    this.querySelector('.buttonok').addEventListener('click',e => {
+       e.preventDefault();
+       e.stopPropagation();
         
-        let evento = new CustomEvent('test', { detail: "custom event del button",
+        let evento = new CustomEvent('clickok', { detail: "custom event del button clickOK",
+                                               bubbles: true });
+        console.log(evento);                                       
+        this.dispatchEvent(evento);
+       });
+
+    this.querySelector('.buttonko').addEventListener('click',e => {
+       e.preventDefault();
+       e.stopPropagation();
+        
+        let evento = new CustomEvent('clickko', { detail: "custom event del button clicKO",
                                                 bubbles: true });
+        console.log(evento);
         this.dispatchEvent(evento);
        });
     }
@@ -60,11 +87,19 @@ class JobPosition extends HTMLElement {
         if (attrName === 'job') {
             this._job = newVal;     
         }
-        if (attrName === 'ontest') {
+        if (attrName === 'onclickok') {
             console.log(attrName,newVal)
-            this._ontest = newVal;  
+            this._onclickok = newVal;  
             let funcion = Function(newVal);
-            this.addEventListener('test',funcion);   
+            console.log('evnto clickOKregistrado',funcion);
+            this.addEventListener('clickok',funcion);   
+        }
+        if (attrName === 'onclickko') {
+            console.log(attrName,newVal)
+            this._onclickko = newVal;  
+            let funcion = Function(newVal);
+            console.log('evnto clickKKregistrado',funcion);
+            this.addEventListener('clickko',funcion);   
         }
     }
     
@@ -79,8 +114,9 @@ customElements.define('job-position', JobPosition);
 
 function recogerevento(event) {
    console.log("antes de recoger el evento");
-    console.log(event,event.detail);
-    console.log("despues de recoger el evento");
-   // console.log(event);
+   console.log(event,event.detail);
+   console.log("despues de recoger el evento");
+   window.alert(event.detail);
+   console.log(event);
 }
 

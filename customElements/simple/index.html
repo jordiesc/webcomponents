@@ -14,23 +14,6 @@
   <!-- custom element with parameters -->  
     <personal-addres calle="diagonal" numero="33"></personal-addres> 
     <personal-addres calle="merdiana" numero="15"></personal-addres> 
-    <job-position job="architect" ontest="recogerevento(event)"></job-position>
-
-
-<!--
-<script>
-var jobpositionelements = document.getElementsByTagName("job-position");
-
-console.log(jobpositionelements);
-
-jobpositionelement = jobpositionelements[0];
-
-console.log(jobpositionelement);
-
-jobpositionelement.addEventListener('test',e => {console.log('capturado el evento');
-      console.log(e);
-});
-    </script>
--->
+    <job-position job="architect" onclickok="recogerevento(event);" onclickko="recogerevento(event);"></job-position>
   </body>
 </html>
