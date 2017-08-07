@@ -1,21 +1,13 @@
 class JobPosition extends HTMLElement {
     constructor() {
         super();
-        this._job;        
-        //this.addEventListener("click", e => {
-            
-        
-        //this.botnlistener(e);  
-        //e.preventDefault();
-        //e.stopPropagation();
-     
-        //})
-        
+        this._job;
+        this._ontest;        
 
     }
 
     static get observedAttributes() {
-        return ['job'];
+        return ['job','ontest'];
     }
 
     get job() {
@@ -31,6 +23,18 @@ class JobPosition extends HTMLElement {
         }
     }
 
+    get ontest() {
+        return this.hasAttribute('ontest');
+    }
+
+    set ontest(val) {
+        if (val) {
+            this.setAttribute('ontest', '');
+
+        } else {
+            this.removeAttribute('ontest');
+        }
+    }    
 
     connectedCallback() {
         console.log('en callback')
@@ -44,8 +48,8 @@ class JobPosition extends HTMLElement {
        let mybutton = this.querySelector('.button').addEventListener('click',e => {
         e.preventDefault();
         e.stopPropagation();
-        let joblocal = this._job;
-        let evento = new CustomEvent('test', { detail: joblocal,
+        
+        let evento = new CustomEvent('test', { detail: "custom event del button",
                                                 bubbles: true });
         this.dispatchEvent(evento);
        });
@@ -54,8 +58,13 @@ class JobPosition extends HTMLElement {
     attributeChangedCallback(attrName, oldVal, newVal) {
         
         if (attrName === 'job') {
-            this._job = newVal;
-            
+            this._job = newVal;     
+        }
+        if (attrName === 'ontest') {
+            console.log(attrName,newVal)
+            this._ontest = newVal;  
+            let funcion = Function(newVal);
+            this.addEventListener('test',funcion);   
         }
     }
     
@@ -65,13 +74,13 @@ class JobPosition extends HTMLElement {
 
 
 
-window.customElements.define('job-position', JobPosition);
+customElements.define('job-position', JobPosition);
 
 
 function recogerevento(event) {
-   console.log("esta,ps em recpger evemtp");
-    console.log(event.detail);
-    console.log("cabado el recoger evento");
+   console.log("antes de recoger el evento");
+    console.log(event,event.detail);
+    console.log("despues de recoger el evento");
    // console.log(event);
 }
 
