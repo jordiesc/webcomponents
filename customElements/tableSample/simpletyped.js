@@ -7,23 +7,23 @@ class PersonalAddres extends HTMLElement {
         return ['calle', 'numero'];
     }
     get calle() {
-        return this.getAttribute('calle');
+        return this.hasAttribute('calle');
     }
     set calle(val) {
         if (val) {
-            this.setAttribute('calle', val);
+            this.setAttribute('calle', '');
         }
         else {
             this.removeAttribute('calle');
         }
     }
     get numero() {
-        return this.getAttribute('numero');
+        return this.hasAttribute('numero');
     }
     set numero(val) {
         console.log("elvalor es" + val + "fin");
         if (val) {
-            this.setAttribute('numero', val);
+            this.setAttribute('numero', '');
         }
         else {
             this.removeAttribute('numero');

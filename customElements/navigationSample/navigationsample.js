@@ -31,6 +31,8 @@ class CustomNavigation extends HTMLElement {
        
     }
 }
+
+console.log('cargando fichero navigationsample.js');
 // se registra en el dom.
 
 /** 
@@ -100,3 +102,4 @@ class PersonalAddres extends HTMLElement {
 
 
 window.customElements.define('custom-navigation', CustomNavigation);
+window.customElements.define('custom-navigation-event', CustomNavigationEvent);

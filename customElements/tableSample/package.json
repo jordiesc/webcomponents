@@ -1,0 +1,14 @@
+{
+  "name": "tablesample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tasktable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webcomponents.js-v1": "^0.7.21"
+  }
+}

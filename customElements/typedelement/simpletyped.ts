@@ -14,12 +14,12 @@ class PersonalAddres extends HTMLElement {
     }
 
     get calle() {
-        return this.hasAttribute('calle');
+        return this.getAttribute('calle');
     }
 
     set calle(val) {
         if (val) {
-            this.setAttribute('calle', '');
+            this.setAttribute('calle', val);
 
         } else {
             this.removeAttribute('calle');
@@ -27,13 +27,13 @@ class PersonalAddres extends HTMLElement {
     }
 
     get numero() {
-        return this.hasAttribute('numero');
+        return this.getAttribute('numero');
     }
 
     set numero(val) {
         console.log("elvalor es" + val + "fin");
         if (val) {
-            this.setAttribute('numero', '');
+            this.setAttribute('numero', val);
 
         } else {
             this.removeAttribute('numero');

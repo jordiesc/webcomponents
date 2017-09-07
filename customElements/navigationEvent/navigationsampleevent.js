@@ -9,12 +9,15 @@ class CustomNavigationEvent extends HTMLElement {
     constructor() {
         super();
         this.msg = 'mi nombre es jordi';
+        console.log('inicializando CustomNavigationEvent ');
     }
 
     connectedCallback() {
 
         // let e = this.createElement('div');
         let shadowRoot = this.attachShadow({ mode: 'open' });
+        console.log('a ver el currentScript');
+        console.log(document);
         let elemento = document.currentScript.ownerDocument.querySelector('#navigationsimple');
         let templ = elemento.content.cloneNode(true);
         shadowRoot.innerHTML = `<p>${this.msg}</p>
@@ -47,3 +50,4 @@ class CustomNavigationEvent extends HTMLElement {
     // se registra en el dom.
 }
 window.customElements.define('custom-navigation-event', CustomNavigationEvent);
+console.log('inicializando CustomNavigationEvent ');

@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<head>
+    <script src="/node_modules/systemjs/dist/system.js"></script>
+
+</head>
+<body>
+    <script>
+        SystemJS.config({
+            
+            baseURL: '/src',
+            meta: {
+                '.': {
+                format: 'system'
+                }
+            },
+            transpiler:'false',
+            paths: {
+                "*":"*.js"
+            },
+            map:{
+               "*":"*.js" 
+            },
+            packages: {
+                ".": {
+                defaultJSExtensions: 'false'
+                }
+            }
+        }
+        );
+        System.import('app.js').then(function(m) {  m.mifuncion(); // yay 
+        });
+    </script>
+   
+<p>hello world</p>
+<div id="MiApplicacion"></div>
+
+</body>
