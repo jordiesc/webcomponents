@@ -7,4 +7,5 @@ Algunas pruebas o PoC con Vainillla WebComponents v1. Raw javasript con cero lib
 * customElements/typedelement. Un ejemplo de webcompoenent utilizando typescript compilado con tsc.
 * customElements/tableSample. Un ejemplo en TypesCript con + html import de otro component de fuera y con el polyfill para que funicione tambien en Firefox compilado2015 Este ejemplo para que funicone el servidor se tiene que levantar a nivel de customElements para que se pueda acceder al html import.
 
+* January 2020 webcompoenentmodule basice customElemen  + native modules all in native vanilla JS. useful to test compatibility
 
